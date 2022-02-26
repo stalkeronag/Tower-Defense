@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 1099321070}
   - component: {fileID: 1099321069}
   - component: {fileID: 1099321073}
+  - component: {fileID: 1099321074}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -248,8 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8c2d1937cf5874c877e667818d86db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
-  distance: 0
   gridBuild: {fileID: 1099321073}
 --- !u!81 &1099321070
 AudioListener:
@@ -310,7 +309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099321068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -329,3 +328,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+  sizeSquare: 10
+  width: 10
+  height: 10
+--- !u!114 &1099321074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099321068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190763d647ae03f459d7f3fc5c1abe9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridBuilder: {fileID: 1099321073}
+  prefabsList: []
+  gameObjec: {fileID: 3461109332505466005, guid: 0749889bc4eca944ab027a92f086a727, type: 3}

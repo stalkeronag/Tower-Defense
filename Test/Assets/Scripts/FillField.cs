@@ -25,6 +25,7 @@ public class FillField : IFillView
         {
             prefabsList.Add(Instantiate<GameObject>(gameObjec));
             prefabsList[i].transform.position = points[i];
+            prefabsList[i].transform.SetParent(transform, false);
         }
     }
 }
