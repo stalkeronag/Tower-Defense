@@ -9,9 +9,10 @@ namespace GridBuilder
         public abstract void MadeGrid();
         public abstract void DeleteGrid();
     }
-    public class Grid : MonoBehaviour
+    [System.Serializable]
+    public class GridD :MonoBehaviour
     {
-        [SerializeField] public IGrid gridBuild;
+        [SerializeField] private IGrid gridBuild;
         public void Start()
         {
             gridBuild.MadeGrid();
