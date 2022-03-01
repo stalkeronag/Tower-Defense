@@ -8,15 +8,20 @@ namespace CameraControl
     {
         public event Action EventRotateCamera;
         public event Action EventMoveCamera;
+        public event Action EventStopCamera;
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.R))
-            {
-                EventRotateCamera?.Invoke();
-            }
             if(Input.GetKeyDown(KeyCode.M))
             {
-                EventMoveCamera?.Invoke();  
+                EventMoveCamera?.Invoke();
+            }
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                EventRotateCamera?.Invoke();  
+            }
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                EventStopCamera?.Invoke();  
             }
         }
     }

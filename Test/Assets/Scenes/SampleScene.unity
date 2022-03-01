@@ -233,6 +233,8 @@ GameObject:
   - component: {fileID: 1099321077}
   - component: {fileID: 1099321076}
   - component: {fileID: 1099321075}
+  - component: {fileID: 1099321078}
+  - component: {fileID: 1099321079}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -461,7 +463,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92559ac9d6439c4d937b0babb4d6307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraEvents: {fileID: 1099321078}
   speedCamera: 0
+  linkedAction:
+  - {fileID: 1099321076}
+  - {fileID: 1099321079}
 --- !u!114 &1099321076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +480,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3afcd1c3dc5f4a446a9f7604da37b434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  linkedAction:
+  - {fileID: 1099321075}
+  - {fileID: 1099321079}
+  events: {fileID: 1099321078}
 --- !u!114 &1099321077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +496,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd76a8faa7085b40af18699b7eb2b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraEvents: {fileID: 0}
-  actionCamera:
+  currentState: {fileID: 1099321076}
+  cameraActions:
   - {fileID: 1099321076}
+  - {fileID: 1099321075}
+--- !u!114 &1099321078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099321068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db07dc99025cc8468298d37ff252e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1099321079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099321068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3291588d441bf554d9a13e7e0a8943bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraEvents: {fileID: 1099321078}
+  speedRotateCamera: 0
+  linkedAction:
+  - {fileID: 1099321076}
+  - {fileID: 1099321075}
