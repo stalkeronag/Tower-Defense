@@ -11,7 +11,23 @@ namespace CameraControl
 {
     public abstract class IActionCamera:MonoBehaviour
     {
-        public abstract List<IActionCamera> LinkedActions { get; set; }
+        [SerializeField] protected List<IActionCamera> linkedAction;
+        [SerializeField] protected TriggersHandler handler;
+        protected bool isCurrent;
+        protected Dictionary<Func<bool>, IActionCamera> dictionaryOfActionCamera;
+        protected Func<bool> triggerActive;
+        public virtual void Init()
+        {
+            handler.Triggers = new List<Func<bool>>();
+            dictionaryOfActionCamera = new Dictionary<Func<bool>, IActionCamera>();
+            isCurrent = true;
+        }
+        public virtual void TrigerActivate(Func<bool> triggerActive)
+        {
+            isCurrent = false;
+            this.triggerActive = triggerActive;
+            handler.triggerIsActivated -= TrigerActivate;
+        }
         public abstract void StartAction();
         public abstract void ExitAction();
     }

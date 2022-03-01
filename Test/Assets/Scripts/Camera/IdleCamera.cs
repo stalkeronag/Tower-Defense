@@ -6,26 +6,13 @@ namespace CameraControl
 {
     public class IdleCamera : IActionCamera
     {
-        [SerializeField] private List<IActionCamera> linkedAction;
-        [SerializeField] private CameraEvents events;
-        private Dictionary<Func<bool>, IActionCamera> dictionaryOfActionCamera;
-        private Func<bool> triggerActive;
-        [SerializeField] private TriggersHandler handler;
-        public override List<IActionCamera> LinkedActions
-        {
-            get { return linkedAction; }
-            set { linkedAction = value; }
-        }
-        private bool isCurrent;
         public override void ExitAction()
         {
             dictionaryOfActionCamera[triggerActive].StartAction();
         }
-        public void Init()
+        public override void Init()
         {
-            handler.Triggers=new List<Func<bool>>();
-            dictionaryOfActionCamera = new Dictionary<Func<bool>, IActionCamera>(); 
-            isCurrent = true;
+            base.Init();
             handler.AddTrigger(() => Input.GetKeyDown(KeyCode.M));
             handler.AddTrigger(() => Input.GetKeyDown(KeyCode.R));
             dictionaryOfActionCamera.Add(handler.Triggers[0], linkedAction[0]);
@@ -37,12 +24,7 @@ namespace CameraControl
             Init();
             StartCoroutine(HelloWorld());
         }
-        public void TrigerActivate(Func<bool> triggerActive)
-        {
-            isCurrent = false;
-            this.triggerActive=triggerActive;  
-            handler.triggerIsActivated -= TrigerActivate;   
-        }
+        public override void TrigerActivate(Func<bool> triggerActive) => base.TrigerActivate(triggerActive);
         public IEnumerator HelloWorld()
         {
             Debug.Log("Idle");
