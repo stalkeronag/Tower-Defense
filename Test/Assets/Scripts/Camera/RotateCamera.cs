@@ -6,6 +6,9 @@ namespace CameraControl
 {
     public class RotateCamera : IActionCamera
     {
+        private Dictionary<Func<bool>, IActionCamera> dictionaryOfActionCamera;
+        private Func<bool> triggerActive;
+        [SerializeField] private TriggersHandler handler;
         [SerializeField] private CameraEvents cameraEvents;
         [SerializeField] private int speedRotateCamera;
         [SerializeField] private List<IActionCamera> linkedAction;
@@ -22,24 +25,27 @@ namespace CameraControl
 
         public void RotateCameraAction()
         {
+            Init();
             isCurrent = true;
-            cameraEvents.EventMoveCamera += OnMove;
-            cameraEvents.EventStopCamera += OnIdle;
             StartCoroutine(RotateCamer());
 
         }
-        public void OnMove()
+        public void Init()
         {
-            isCurrent = false;
-            cameraEvents.EventMoveCamera -= OnMove;
-            indexNextActionCamera = 1;
-          
+            handler.Triggers = new List<Func<bool>>();
+            dictionaryOfActionCamera = new Dictionary<Func<bool>, IActionCamera>();
+            isCurrent = true;
+            handler.AddTrigger(() => Input.GetKeyDown(KeyCode.A));
+            handler.AddTrigger(() => Input.GetKeyDown(KeyCode.M));
+            dictionaryOfActionCamera.Add(handler.Triggers[0], linkedAction[0]);
+            dictionaryOfActionCamera.Add(handler.Triggers[1], linkedAction[1]);
+            handler.triggerIsActivated += TrigerActivate;
         }
-        public void OnIdle()
+        public void TrigerActivate(Func<bool> triggerActive)
         {
             isCurrent = false;
-            cameraEvents.EventStopCamera -= OnIdle;
-            indexNextActionCamera = 0;
+            this.triggerActive = triggerActive;
+            handler.triggerIsActivated -= TrigerActivate;
         }
         public IEnumerator RotateCamer()
         {
@@ -52,7 +58,7 @@ namespace CameraControl
         }
         public override void ExitAction()
         {
-            linkedAction[indexNextActionCamera].StartAction();
+            dictionaryOfActionCamera[triggerActive].StartAction();
         }
 
     }
