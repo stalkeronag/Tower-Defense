@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 public interface IMachine
 {
     public void StartMachine();
@@ -11,6 +13,7 @@ namespace CameraControl
 {
     public abstract class IActionCamera:MonoBehaviour
     {
+        [SerializeField] protected float ExitTime;
         [SerializeField] protected List<IActionCamera> linkedAction;
         [SerializeField] protected TriggersHandler handler;
         protected bool isCurrent;
@@ -21,6 +24,7 @@ namespace CameraControl
             handler.Triggers = new List<Func<bool>>();
             dictionaryOfActionCamera = new Dictionary<Func<bool>, IActionCamera>();
             isCurrent = true;
+            handler.triggerIsActivated += TrigerActivate;
         }
         public virtual void TrigerActivate(Func<bool> triggerActive)
         {
@@ -40,7 +44,6 @@ namespace CameraControl
         {
             rootAction = currentState;
             currentState.StartAction();
-
         }
         public void StopMachine()
         {
@@ -48,4 +51,3 @@ namespace CameraControl
         }
     }
 }
-

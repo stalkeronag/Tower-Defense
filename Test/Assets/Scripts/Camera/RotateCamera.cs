@@ -20,11 +20,10 @@ namespace CameraControl
         public override void Init()
         {
             base.Init();
-            handler.AddTrigger(() => Input.GetKeyDown(KeyCode.A));
+            handler.AddTrigger(() => Input.GetKeyDown(KeyCode.I));
             handler.AddTrigger(() => Input.GetKeyDown(KeyCode.M));
             dictionaryOfActionCamera.Add(handler.Triggers[0], linkedAction[0]);
             dictionaryOfActionCamera.Add(handler.Triggers[1], linkedAction[1]);
-            handler.triggerIsActivated += TrigerActivate;
         }
         public override void TrigerActivate(Func<bool> triggerActive) => base.TrigerActivate(triggerActive);
 

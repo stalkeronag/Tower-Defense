@@ -6,6 +6,7 @@ namespace CameraControl
 {
     public class IdleCamera : IActionCamera
     {
+        
         public override void ExitAction()
         {
             dictionaryOfActionCamera[triggerActive].StartAction();
@@ -17,7 +18,6 @@ namespace CameraControl
             handler.AddTrigger(() => Input.GetKeyDown(KeyCode.R));
             dictionaryOfActionCamera.Add(handler.Triggers[0], linkedAction[0]);
             dictionaryOfActionCamera.Add(handler.Triggers[1], linkedAction[1]);
-            handler.triggerIsActivated += TrigerActivate;
         }
         public override void StartAction()
         {
