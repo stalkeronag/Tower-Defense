@@ -46,6 +46,10 @@ namespace StateMachine
     {
         [SerializeField] private NodeState rootNodeState;
         private NodeState currentState;
+        public void Start()
+        {
+            StartMachine();
+        }
         public void StartMachine()
         {
             currentState = rootNodeState;

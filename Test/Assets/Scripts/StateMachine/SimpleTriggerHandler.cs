@@ -15,7 +15,7 @@ namespace StateMachine
         }
         public IEnumerator UntilTriggerStart(Func<bool> triggerCheck)
         {
-            while(triggerCheck.Invoke())
+            while(!triggerCheck.Invoke())
             {
                 yield return null;
             }

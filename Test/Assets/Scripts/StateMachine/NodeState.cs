@@ -16,9 +16,9 @@ namespace StateMachine
         [SerializeField] protected List<NodeState> linkedNodeState;
         [SerializeField] protected int exitTime;
         [SerializeField] protected bool isCurrent;
-        private Dictionary<Func<bool>,NodeState> nodeStateMap;
-        private List<Func<bool>> triggers;
-        private Func<bool> triggerActive;
+        protected Dictionary<Func<bool>,NodeState> nodeStateMap;
+        protected List<Func<bool>> triggers;
+        protected Func<bool> triggerActive;
         public event Action ReadyToSwitch;
         public virtual void Init()
         {
