@@ -12,9 +12,8 @@ public class TestNode3 : NodeState
         triggers.Add(() => Input.GetKeyDown(KeyCode.M));
         return triggers;
     }
-    public override void StartNodeAction()
+    protected override void NodeAction()
     {
-        base.StartNodeAction();
-        Debug.Log("Oh shit i am sorry");
+        transform.position = transform.position + Vector3.right*Time.deltaTime;
     }
-  }
+}

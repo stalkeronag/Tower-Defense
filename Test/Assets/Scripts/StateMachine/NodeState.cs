@@ -40,6 +40,19 @@ namespace StateMachine
         public virtual void StartNodeAction()
         {
             contextTriggerBuild.BuildTriggerSystem(triggers);
+            StartCoroutine(CoroutineAction());
+        }
+        public IEnumerator CoroutineAction()
+        {
+            while(isCurrent)
+            {
+                NodeAction();
+                yield return null;
+            }
+        }
+        protected virtual void NodeAction()
+        {
+
         }
         public void TriggerShut(Func<bool> trigger)
         {
@@ -54,7 +67,7 @@ namespace StateMachine
         }
         public virtual void ExitNodeAction()
         {
-           
+           isCurrent = false;
         }
         public virtual NodeState EnterNodeAction()
         {

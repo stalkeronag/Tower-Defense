@@ -53,8 +53,8 @@ namespace StateMachine
         public void StartMachine()
         {
             currentState = rootNodeState;
-            currentState.ReadyToSwitch += Switch;
             currentState.Init();
+            currentState.ReadyToSwitch += Switch;  
             currentState.StartNodeAction();
 
         }
@@ -68,8 +68,8 @@ namespace StateMachine
             currentState.ExitNodeAction();
             currentState.ReadyToSwitch-= Switch;    
             currentState = currentState.EnterNodeAction();
-            currentState.ReadyToSwitch+=Switch;
             currentState.Init();
+            currentState.ReadyToSwitch+=Switch;
             currentState.StartNodeAction();
         }
     }

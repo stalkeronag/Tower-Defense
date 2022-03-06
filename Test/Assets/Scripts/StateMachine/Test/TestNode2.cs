@@ -13,20 +13,8 @@ public class TestNode2 : NodeState
         triggers.Add(() => Input.GetKeyDown(KeyCode.V));
         return triggers;
     }
-    public override void StartNodeAction()
+    protected override void NodeAction()
     {
-        base.StartNodeAction();
-        StartCoroutine(StartFisting());
-    }
-    public IEnumerator StartFisting()
-    {
-        int i=0;
-        while(isCurrent)
-        {
-            i++;
-            string fas = i + " Fucking Slave";
-            Debug.Log(fas);
-            yield return null;
-        }
+        transform.position = transform.position + Vector3.left * Time.deltaTime;
     }
 }

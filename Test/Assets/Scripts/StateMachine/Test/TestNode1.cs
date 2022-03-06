@@ -12,10 +12,8 @@ public class TestNode1 : NodeState
         triggers.Add(() => Input.GetKeyDown(KeyCode.V));
         return triggers;
     }
-    public override void StartNodeAction()
+    protected override void NodeAction()
     {
-        base.StartNodeAction();
-
-        Debug.Log("Fisting is 300 bucks");
+        transform.position = transform.position +Vector3.forward*Time.deltaTime;
     }
 }
