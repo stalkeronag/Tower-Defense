@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 [System.Serializable]
-public class SavePosition : ISaveable
+public class SaveRotation : ISaveable
 {
     private string path;
     private Vector3 position;
@@ -29,11 +29,11 @@ public class SavePosition : ISaveable
     public void Load()
     {
         float[] vector3 = new float[3];
-        if(!File.Exists(path))
+        if (!File.Exists(path))
         {
             return;
         }
-        using(FileStream fs = File.Open(path, FileMode.Open, FileAccess.Read))
+        using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Read))
         {
             XmlSerializer serializer = new XmlSerializer(typeof(float[]));
             vector3 = serializer.Deserialize(fs) as float[];
