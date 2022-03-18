@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 255226883}
   - component: {fileID: 255226882}
   - component: {fileID: 255226881}
-  - component: {fileID: 255226886}
   - component: {fileID: 255226885}
   m_Layer: 3
   m_Name: Cube
@@ -229,22 +228,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 255226880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8810ccaa4187355bbbc2b27d18e35ea3, type: 3}
+  m_Script: {fileID: 11500000, guid: 86b319feb820275509373c918b284b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &255226886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255226880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3e46bfd81eab48b903e32fdc929f6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selector: {fileID: 255226885}
+  colorHighlight: {r: 0.17808829, g: 0.21579276, b: 0.5471698, a: 0}
 --- !u!1 &633949489
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +337,6 @@ GameObject:
   - component: {fileID: 1048668525}
   - component: {fileID: 1048668524}
   - component: {fileID: 1048668523}
-  - component: {fileID: 1048668528}
   - component: {fileID: 1048668527}
   m_Layer: 3
   m_Name: Cube (3)
@@ -444,22 +430,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1048668522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8810ccaa4187355bbbc2b27d18e35ea3, type: 3}
+  m_Script: {fileID: 11500000, guid: 86b319feb820275509373c918b284b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1048668528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048668522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3e46bfd81eab48b903e32fdc929f6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selector: {fileID: 1048668527}
+  colorHighlight: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1057688540
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +446,6 @@ GameObject:
   - component: {fileID: 1057688543}
   - component: {fileID: 1057688542}
   - component: {fileID: 1057688541}
-  - component: {fileID: 1057688546}
   - component: {fileID: 1057688545}
   m_Layer: 3
   m_Name: Cube (1)
@@ -566,22 +539,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1057688540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8810ccaa4187355bbbc2b27d18e35ea3, type: 3}
+  m_Script: {fileID: 11500000, guid: 86b319feb820275509373c918b284b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1057688546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057688540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3e46bfd81eab48b903e32fdc929f6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selector: {fileID: 1057688545}
+  colorHighlight: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1919667969
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +555,6 @@ GameObject:
   - component: {fileID: 1919667972}
   - component: {fileID: 1919667971}
   - component: {fileID: 1919667970}
-  - component: {fileID: 1919667975}
   - component: {fileID: 1919667974}
   m_Layer: 3
   m_Name: Cube (2)
@@ -688,22 +648,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919667969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8810ccaa4187355bbbc2b27d18e35ea3, type: 3}
+  m_Script: {fileID: 11500000, guid: 86b319feb820275509373c918b284b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1919667975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919667969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3e46bfd81eab48b903e32fdc929f6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selector: {fileID: 1919667974}
+  colorHighlight: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2133479264
 GameObject:
   m_ObjectHideFlags: 0

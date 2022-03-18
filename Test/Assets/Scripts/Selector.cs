@@ -6,35 +6,45 @@ using System;
 
 public class Selector : MonoBehaviour
 {
-
-    public event Action SelectAction;
+    private ISelectable currentSelectable;
     private bool isWaiting=false;
-    public bool IsWaiting
-    {
-        get{return isWaiting;}
-        set{isWaiting=value;}
-    }
     public void Update()
     {
-        
-       if(!isWaiting)
-       {
-             RaycastHit nextHit ;
-             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray,out nextHit))
-             {
-                 
-              isWaiting = true;
-              SelectAction.Invoke();
-              StartCoroutine(UntilAction());
-             }
-       } 
-    }
-    public IEnumerator UntilAction()
-    {
-        while(isWaiting)
+        if(!isWaiting)
         {
-            yield return null;
+            TrySelectArea();
         }
     }
+    public void TrySelectArea()
+    {      
+            RaycastHit hit ;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray,out hit))
+             {
+                 
+              ISelectable selectableObject = hit.collider.gameObject.GetComponent<ISelectable>();  
+              if(currentSelectable==selectableObject)
+              {
+                   UnLock();
+                   return;
+              }
+              else
+              {
+                  currentSelectable?.ActionAfterDeselect();
+              }
+              if(selectableObject!=null)
+              {
+                   OnLock();
+                  selectableObject.ActionEnd +=UnLock;
+                  selectableObject.ActionAfterSelect();
+                  currentSelectable = selectableObject;
+              }
+              else
+              {
+                UnLock(); 
+              }        
+             }
+    }
+    public void OnLock() =>isWaiting = true;
+    public void UnLock() => isWaiting = false;
 }
